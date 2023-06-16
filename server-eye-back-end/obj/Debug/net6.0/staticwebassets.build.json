@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wKomJSBU89gkpdgY87qjznR/8/GWxjgviC9nRp1nKTE=",
+  "Source": "server-eye-back-end",
+  "BasePath": "_content/server-eye-back-end",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

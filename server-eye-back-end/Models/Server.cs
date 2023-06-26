@@ -7,5 +7,6 @@
 		public string Name { get; set; }
         public int OsId { get; set; }
         public virtual Os Os { get; set; }
+        public virtual List<App> Apps { get; set; }
     }
 }

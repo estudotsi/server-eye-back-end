@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dHwaMwJZ7ao/EOdYq8LZbtTBVkyuVWJR8RBHY/v9UMy83RxyRzLukSCjJepQrazMSMw4FWJSS/+T8F4rXtmxMw==",
+  "dgSpecHash": "ySN2YlGth/GO5adXbfeRtp3bTNswxtbVOP7Gbg5XDuJYQzMAvHU/ua1/C2/e7QsLJUyGyIUinob0GvHDsdPvbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rogerio.campos\\source\\repos\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
+  "projectFilePath": "C:\\Users\\rogerio.campos\\Desktop\\server-eye\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rogerio.campos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rogerio.campos\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.18\\microsoft.aspnetcore.jsonpatch.6.0.18.nupkg.sha512",

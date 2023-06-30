@@ -10,8 +10,8 @@ using server_eye_back_end.Data;
 namespace server_eye_back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230626202258_addApp")]
-    partial class addApp
+    [Migration("20230627153926_fix")]
+    partial class fix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace server_eye_back_end.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("App");
+                    b.ToTable("Apps");
                 });
 
             modelBuilder.Entity("server_eye_back_end.Models.Os", b =>

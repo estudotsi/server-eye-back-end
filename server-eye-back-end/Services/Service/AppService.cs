@@ -19,15 +19,37 @@ namespace server_eye_back_end.Services.Service
 			try
 			{
 				var app = _context.Apps.Include(s => s.Server).ToList();
+
+				if(app == null)
+				{
+					return null;
+				}
+
+				return app;
 			}
 			catch (Exception ex) 
 			{
+				throw new Exception(ex.Message);
 			}
 		}
 
 		public App ReadAppBiId(int Id)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				var app = _context.Apps.Include(s => s.Server).FirstOrDefault(a => a.Id == Id);
+
+				if(app == null)
+				{
+					return null;
+				}
+
+				return app;
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
 		}
 
 	

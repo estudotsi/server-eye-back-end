@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server_eye_back_end.Data;
+using server_eye_back_end.Models;
 using server_eye_back_end.Services.Interfaces;
 
 namespace server_eye_back_end.Controllers
@@ -29,6 +30,7 @@ namespace server_eye_back_end.Controllers
 		public IActionResult ReadServerById(int id)
 		{
 			var server = _service.ReadServerBiId(id);
+
 			if (server == null)
 			{
 				return NotFound();

@@ -37,7 +37,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				Os os = _context.Oss.Include(s => s.Servers).FirstOrDefault(os => os.Id == Id);
+				var os = _context.Oss.Include(s => s.Servers).FirstOrDefault(os => os.Id == Id);
 				if(os == null)
 				{
 					return null;

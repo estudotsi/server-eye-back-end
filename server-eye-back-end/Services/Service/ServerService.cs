@@ -36,7 +36,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				Server server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).FirstOrDefault(server => server.Id == id);
+				var server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).FirstOrDefault(server => server.Id == id);
 				if(server == null)
 				{
 					return null;

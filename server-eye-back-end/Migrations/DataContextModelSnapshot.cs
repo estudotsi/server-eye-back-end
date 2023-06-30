@@ -35,7 +35,7 @@ namespace server_eye_back_end.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("App");
+                    b.ToTable("Apps");
                 });
 
             modelBuilder.Entity("server_eye_back_end.Models.Os", b =>

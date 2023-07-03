@@ -5,46 +5,49 @@ using server_eye_back_end.Services.Interfaces;
 
 namespace server_eye_back_end.Services.Service
 {
-	public class OsService : IOsService
+	public class DBService : IDBService
 	{
 		private readonly DataContext _context;
 
-		public OsService(DataContext context)
+		public DBService(DataContext context)
 		{
 			_context = context;
 		}
-
-		public List<Os> ReadOss()
+		public List<DB> ReadADbs()
 		{
 			try
 			{
-				var oss = _context.Oss.Include(s => s.Servers).ToList();
+				List<DB> db = _context.DBs.Include(s => s.Server).ToList();
 
-				if (oss == null)
+				if(db == null)
 				{
 					return null;
 				}
-					
-				return oss;
+
+				return db;
+
 			}
-			catch (Exception ex)
+			catch(Exception ex) 
 			{
 				throw new Exception(ex.Message);
 			}
+
 		}
 
-		public Os ReadOsById(int Id)
+		public DB ReadDbById(int Id)
 		{
 			try
 			{
-				var os = _context.Oss.Include(s => s.Servers).FirstOrDefault(os => os.Id == Id);
-				if(os == null)
+				DB db = _context.DBs.Include(s => s.Server).FirstOrDefault(d => d.Id == Id);
+
+				if(db == null)
 				{
 					return null;
 				}
-				return os;
+
+				return db;
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
 				throw new Exception(ex.Message);
 			}

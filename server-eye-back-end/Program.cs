@@ -21,6 +21,7 @@ builder.Services.AddControllers().AddNewtonsoftJson
 builder.Services.AddScoped<IServerService, ServerService>();
 builder.Services.AddScoped<IOsService, OsService>();
 builder.Services.AddScoped<IAppService, AppService>();
+builder.Services.AddScoped<IDBService, DBService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace server_eye_back_end.Migrations
 {
-    public partial class fix : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,6 +37,8 @@ namespace server_eye_back_end.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Rede = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     OsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -57,7 +59,7 @@ namespace server_eye_back_end.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "longtext", nullable: false)
+                    Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ServerId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -73,9 +75,38 @@ namespace server_eye_back_end.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.CreateTable(
+                name: "DBs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Ip = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ServerId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DBs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DBs_Servers_ServerId",
+                        column: x => x.ServerId,
+                        principalTable: "Servers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Apps_ServerId",
                 table: "Apps",
+                column: "ServerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DBs_ServerId",
+                table: "DBs",
                 column: "ServerId");
 
             migrationBuilder.CreateIndex(
@@ -88,6 +119,9 @@ namespace server_eye_back_end.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Apps");
+
+            migrationBuilder.DropTable(
+                name: "DBs");
 
             migrationBuilder.DropTable(
                 name: "Servers");

@@ -18,7 +18,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				List<Server> servers = _context.Servers.Include(os => os.Os).Include(a => a.Apps).ToList();
+				List<Server> servers = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).ToList();
 				if(servers == null)
 				{
 					return null;
@@ -32,11 +32,11 @@ namespace server_eye_back_end.Services.Service
 			}
 		}
 
-		public Server ReadServerBiId(int id)
+		public Server ReadServerById(int id)
 		{
 			try
 			{
-				var server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).FirstOrDefault(server => server.Id == id);
+				var server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).FirstOrDefault(server => server.Id == id);
 				if(server == null)
 				{
 					return null;

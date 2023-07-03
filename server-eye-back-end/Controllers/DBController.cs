@@ -7,33 +7,33 @@ namespace server_eye_back_end.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class AppController : ControllerBase
+	public class DBController : ControllerBase
 	{
-		private readonly IAppService _service;
+		private readonly IDBService _service;
 
-		public AppController(IAppService service)
+		public DBController(IDBService service)
 		{
 			_service = service;
 		}
 
 		[HttpGet]
-		public IActionResult ReadApps()
+		public IActionResult ReadADBs()
 		{
-			var apps = _service.ReadApps();
+			var dbs = _service.ReadADbs();
 
-			return Ok(apps);
+			return Ok(dbs);
 		}
 
 		[HttpGet("{id}")]
-		public IActionResult ReadAppsById(int id)
+		public IActionResult ReadDBAsById(int id)
 		{
-			var app = _service.ReadAppById(id);
-			
-			if(app == null)
+			DB db = _service.ReadDbById(id);
+
+			if (db == null)
 			{
 				return NotFound();
 			}
-			return Ok(app);
+			return Ok(db);
 		}
 	}
 }

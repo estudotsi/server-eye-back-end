@@ -10,8 +10,8 @@ using server_eye_back_end.Data;
 namespace server_eye_back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230627153926_fix")]
-    partial class fix
+    [Migration("20230703204329_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,7 @@ namespace server_eye_back_end.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -38,6 +38,30 @@ namespace server_eye_back_end.Migrations
                     b.HasIndex("ServerId");
 
                     b.ToTable("Apps");
+                });
+
+            modelBuilder.Entity("server_eye_back_end.Models.DB", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ip")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ServerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServerId");
+
+                    b.ToTable("DBs");
                 });
 
             modelBuilder.Entity("server_eye_back_end.Models.Os", b =>
@@ -72,6 +96,10 @@ namespace server_eye_back_end.Migrations
                     b.Property<int>("OsId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Rede")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OsId");
@@ -83,6 +111,17 @@ namespace server_eye_back_end.Migrations
                 {
                     b.HasOne("server_eye_back_end.Models.Server", "Server")
                         .WithMany("Apps")
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Server");
+                });
+
+            modelBuilder.Entity("server_eye_back_end.Models.DB", b =>
+                {
+                    b.HasOne("server_eye_back_end.Models.Server", "Server")
+                        .WithMany("DBs")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -109,6 +148,8 @@ namespace server_eye_back_end.Migrations
             modelBuilder.Entity("server_eye_back_end.Models.Server", b =>
                 {
                     b.Navigation("Apps");
+
+                    b.Navigation("DBs");
                 });
 #pragma warning restore 612, 618
         }

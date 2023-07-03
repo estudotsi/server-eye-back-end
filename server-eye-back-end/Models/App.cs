@@ -3,7 +3,7 @@
 	public class App
 	{
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public string Name { get; set; }
         public int ServerId { get; set; }
         public virtual Server Server { get; set; }
     }

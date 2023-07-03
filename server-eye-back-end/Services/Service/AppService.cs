@@ -18,7 +18,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				var app = _context.Apps.Include(s => s.Server).ToList();
+				List<App> app = _context.Apps.Include(s => s.Server).ToList();
 
 				if(app == null)
 				{
@@ -33,7 +33,7 @@ namespace server_eye_back_end.Services.Service
 			}
 		}
 
-		public App ReadAppBiId(int Id)
+		public App ReadAppById(int Id)
 		{
 			try
 			{

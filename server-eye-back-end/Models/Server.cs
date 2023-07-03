@@ -5,8 +5,10 @@
 		public int Id { get; set; }
 		public string Ip { get; set; }
 		public string Name { get; set; }
-        public int OsId { get; set; }
+		public string Rede { get; set; }
+		public int OsId { get; set; }
         public virtual Os Os { get; set; }
         public virtual List<App> Apps { get; set; }
-    }
+		public virtual List<DB> DBs { get; set; }
+	}
 }

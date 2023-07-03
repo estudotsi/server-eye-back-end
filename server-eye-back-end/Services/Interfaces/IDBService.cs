@@ -2,9 +2,9 @@
 
 namespace server_eye_back_end.Services.Interfaces
 {
-	public interface IOsService
+	public interface IDBService
 	{
-		List<Os> ReadOss();
-		Os ReadOsById(int Id);
+		List<DB> ReadADbs();
+		DB ReadDbById(int Id);
 	}
 }

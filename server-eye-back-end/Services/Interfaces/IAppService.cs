@@ -5,6 +5,6 @@ namespace server_eye_back_end.Services.Interfaces
 	public interface IAppService
 	{
 		List<App> ReadApps();
-		App ReadAppBiId(int Id);
+		App ReadAppById(int Id);
 	}
 }

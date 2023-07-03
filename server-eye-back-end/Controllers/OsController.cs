@@ -30,7 +30,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet("{id}")]
 		public IActionResult ReadOsById(int id)
 		{
-			var os = _service.ReadOsBiId(id);
+			var os = _service.ReadOsById(id);
 
 			if (os == null)
 			{

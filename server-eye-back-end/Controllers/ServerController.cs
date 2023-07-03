@@ -29,7 +29,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet("{id}")]
 		public IActionResult ReadServerById(int id)
 		{
-			var server = _service.ReadServerBiId(id);
+			var server = _service.ReadServerById(id);
 
 			if (server == null)
 			{

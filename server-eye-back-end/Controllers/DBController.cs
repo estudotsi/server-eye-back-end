@@ -19,7 +19,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet]
 		public IActionResult ReadADBs()
 		{
-			var dbs = _service.ReadADbs();
+			List<DB> dbs = _service.ReadADbs();
 
 			return Ok(dbs);
 		}

@@ -6,5 +6,6 @@ namespace server_eye_back_end.Services.Interfaces
 	{
 		List<Server> ReadServers();
 		Server ReadServerById(int Id);
+		List<Server> RedeServerByRede(string rede);
 	}
 }

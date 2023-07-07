@@ -11,5 +11,6 @@ namespace server_eye_back_end.Data
 		public DbSet<Server> Servers { get; set; }
 		public DbSet<App> Apps { get; set; }
 		public DbSet<DB> DBs { get; set; }
+
 	}
 }

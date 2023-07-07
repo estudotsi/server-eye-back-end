@@ -19,6 +19,7 @@ namespace server_eye_back_end.Services.Service
 			try
 			{
 				List<Server> servers = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).ToList();
+
 				if(servers == null)
 				{
 					return null;
@@ -36,7 +37,8 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				var server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).FirstOrDefault(server => server.Id == id);
+				Server server = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).FirstOrDefault(server => server.Id == id);
+
 				if(server == null)
 				{
 					return null;
@@ -48,6 +50,24 @@ namespace server_eye_back_end.Services.Service
 				throw new Exception(ex.Message);
 			}
 
+		}
+
+		public List<Server> RedeServerByRede(string rede)
+		{
+			try
+			{
+				List<Server> servers = _context.Servers.Include(os => os.Os).Include(a => a.Apps).Include(d => d.DBs).Where(server => server.Rede == rede).ToList();
+
+				if(servers == null)
+				{
+					return null;
+				}
+				return servers;
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
 		}
 	}
 }

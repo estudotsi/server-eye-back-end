@@ -21,7 +21,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet]
 		public IActionResult ReadServers()
 		{
-			var servers = _service.ReadServers();
+			List<Server> servers = _service.ReadServers();
 
 			return Ok(servers);
 		}
@@ -29,13 +29,26 @@ namespace server_eye_back_end.Controllers
 		[HttpGet("{id}")]
 		public IActionResult ReadServerById(int id)
 		{
-			var server = _service.ReadServerById(id);
+			Server server = _service.ReadServerById(id);
 
 			if (server == null)
 			{
 				return NotFound();
 			} 
 			return Ok(server);
+
+		}
+
+		[HttpGet("rede/{rede}")]
+		public IActionResult ReadServerByRede(string rede)
+		{
+			List<Server> servers = _service.RedeServerByRede(rede);
+
+			if (servers == null)
+			{
+				return NotFound();
+			}
+			return Ok(servers);
 
 		}
 	}

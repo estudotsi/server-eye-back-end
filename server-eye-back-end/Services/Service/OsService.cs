@@ -18,7 +18,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				var oss = _context.Oss.Include(s => s.Servers).ToList();
+				List<Os> oss = _context.Oss.Include(s => s.Servers).ToList();
 
 				if (oss == null)
 				{
@@ -37,7 +37,8 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				var os = _context.Oss.Include(s => s.Servers).FirstOrDefault(os => os.Id == Id);
+				Os os = _context.Oss.Include(s => s.Servers).FirstOrDefault(os => os.Id == Id);
+
 				if(os == null)
 				{
 					return null;
@@ -48,6 +49,11 @@ namespace server_eye_back_end.Services.Service
 			{
 				throw new Exception(ex.Message);
 			}
+		}
+
+		public Os AddOs(Os os)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

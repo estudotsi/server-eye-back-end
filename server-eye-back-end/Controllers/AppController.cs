@@ -19,7 +19,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet]
 		public IActionResult ReadApps()
 		{
-			var apps = _service.ReadApps();
+			List<App> apps = _service.ReadApps();
 
 			return Ok(apps);
 		}
@@ -27,7 +27,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet("{id}")]
 		public IActionResult ReadAppsById(int id)
 		{
-			var app = _service.ReadAppById(id);
+			App app = _service.ReadAppById(id);
 			
 			if(app == null)
 			{

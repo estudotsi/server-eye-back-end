@@ -22,7 +22,7 @@ namespace server_eye_back_end.Controllers
         [HttpGet]
 		public IActionResult ReadOss()
 		{
-			var oss = _service.ReadOss();
+			List<Os> oss = _service.ReadOss();
 			
 			return Ok(oss);
 		}
@@ -30,7 +30,7 @@ namespace server_eye_back_end.Controllers
 		[HttpGet("{id}")]
 		public IActionResult ReadOsById(int id)
 		{
-			var os = _service.ReadOsById(id);
+			Os os = _service.ReadOsById(id);
 
 			if (os == null)
 			{

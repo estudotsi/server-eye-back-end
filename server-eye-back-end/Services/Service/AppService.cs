@@ -18,7 +18,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				List<App> app = _context.Apps.Include(s => s.Server).ToList();
+				List<App> app = _context.Apps.Include(s => s.Server).Include(d => d.DB).ToList();
 
 				if(app == null)
 				{
@@ -37,7 +37,7 @@ namespace server_eye_back_end.Services.Service
 		{
 			try
 			{
-				var app = _context.Apps.Include(s => s.Server).FirstOrDefault(a => a.Id == Id);
+				App app = _context.Apps.Include(s => s.Server).Include(d => d.DB).FirstOrDefault(a => a.Id == Id);
 
 				if(app == null)
 				{

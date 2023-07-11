@@ -37,6 +37,19 @@ namespace server_eye_back_end.Controllers
 				return NotFound();
 			}
 			return Ok(os);
+		}
+
+		[HttpPost]
+		public IActionResult AddOs([FromBody]Os osRecebido) 
+		{
+			Os os = _service.AddOs(osRecebido);
+
+			if(os == null)
+			{
+				return BadRequest("Problema ao gravar sistema operacional");
+			}
+			
+			return Ok(os);
 
 		}
 	}

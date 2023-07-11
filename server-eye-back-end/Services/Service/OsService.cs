@@ -53,7 +53,10 @@ namespace server_eye_back_end.Services.Service
 
 		public Os AddOs(Os os)
 		{
-			throw new NotImplementedException();
+			_context.Oss.Add(os);
+			_context.SaveChanges();
+
+			return os;
 		}
 	}
 }

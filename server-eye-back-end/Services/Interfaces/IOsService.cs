@@ -7,5 +7,6 @@ namespace server_eye_back_end.Services.Interfaces
 		List<Os> ReadOss();
 		Os ReadOsById(int Id);
 		Os AddOs(Os os);
+		Os DeleteOs(int id);
 	}
 }

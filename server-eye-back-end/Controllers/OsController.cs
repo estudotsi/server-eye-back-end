@@ -48,9 +48,19 @@ namespace server_eye_back_end.Controllers
 			{
 				return BadRequest("Problema ao gravar sistema operacional");
 			}
-			
 			return Ok(os);
+		}
 
+		[HttpDelete("{id}")]
+		public IActionResult DeleteOs(int id)
+		{
+			Os os = _service.DeleteOs(id);
+
+			if (os == null) 
+			{
+				return NotFound();
+			} 
+			return NoContent();
 		}
 	}
 

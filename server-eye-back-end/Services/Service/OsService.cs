@@ -59,11 +59,11 @@ namespace server_eye_back_end.Services.Service
 			return os;
 		}
 
-		public Os DeleteOs(int id)
+		public Os DeleteOs(int Id)
 		{
 			try
 			{
-				Os os = _context.Oss.FirstOrDefault(os => os.Id == id);
+				Os os = _context.Oss.FirstOrDefault(os => os.Id == Id);
 
 				if (os == null)
 				{
@@ -78,6 +78,34 @@ namespace server_eye_back_end.Services.Service
 				throw new Exception(ex.Message);
 			}
 
+		}
+
+		public Os UpdateOs(Os osRecebido, int id)
+		{
+			try
+			{
+				if (id != osRecebido.Id)
+				{
+					return null;
+				}
+
+				Os os = _context.Oss.AsNoTracking().FirstOrDefault(os => os.Id == id);
+
+				if (os == null)
+				{
+					return null;
+				}
+
+				os = osRecebido;
+				_context.Update(os);
+				_context.SaveChanges();
+				return os;
+
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
 		}
 	}
 }

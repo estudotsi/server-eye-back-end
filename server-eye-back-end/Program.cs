@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using server_eye_back_end.Data;
 using server_eye_back_end.Services.Interfaces;
 using server_eye_back_end.Services.Service;
@@ -43,6 +45,15 @@ app.UseAuthorization();
 app.UseCors(x => x.AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowAnyOrigin());
+
+app.UseStaticFiles(new StaticFileOptions()
+
+{
+	FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Resources")),
+	RequestPath = new PathString("/Resources")
+});
+
+
 
 app.MapControllers();
 

@@ -90,6 +90,7 @@ namespace server_eye_back_end.Services.Service
 				}
 
 				Os os = _context.Oss.AsNoTracking().FirstOrDefault(os => os.Id == id);
+				var nameImage = os.ImagemURL;
 
 				if (os == null)
 				{
@@ -97,9 +98,30 @@ namespace server_eye_back_end.Services.Service
 				}
 
 				os = osRecebido;
+				os.ImagemURL = nameImage;
 				_context.Update(os);
 				_context.SaveChanges();
 				return os;
+
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+			}
+		}
+
+		public bool SearchFilename(string name)
+		{
+
+			bool flag = _context.Oss.Any(os => os.ImagemURL == name);
+
+			try
+			{
+				if (flag)
+				{
+					return true;
+				}
+				else return false;
 
 			}
 			catch (Exception ex)

@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\angular.svg" />
+    <None Remove="Resources\Images\CentOs.svg" />
+    <None Remove="Resources\Images\iconmonstr-cloud-upload-thin.svg" />
+    <None Remove="Resources\Images\iconmonstr-cloud-upload-thin.svg.svg" />
+    <None Remove="Resources\Images\lenovo-1-2.svg" />
+    <None Remove="Resources\Images\MacOsServer.svg" />
+    <None Remove="Resources\Images\RedHat.svg" />
+    <None Remove="Resources\Images\svg" />
+    <None Remove="Resources\Images\WindowsServer.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.18">

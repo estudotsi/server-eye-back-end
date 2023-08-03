@@ -9,5 +9,6 @@ namespace server_eye_back_end.Services.Interfaces
 		Os AddOs(Os os);
 		Os DeleteOs(int Id);
 		Os UpdateOs(Os os, int Id);
+		bool SearchFilename(string name);
 	}
 }

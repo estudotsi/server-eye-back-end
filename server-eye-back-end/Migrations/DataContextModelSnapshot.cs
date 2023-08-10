@@ -149,7 +149,7 @@ namespace server_eye_back_end.Migrations
                     b.HasOne("server_eye_back_end.Models.Os", "Os")
                         .WithMany("Servers")
                         .HasForeignKey("OsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Os");

@@ -69,5 +69,65 @@ namespace server_eye_back_end.Services.Service
 				throw new Exception(ex.Message);
 			}
 		}
-	}
+
+        public Server AddServer(Server server)
+        {
+            _context.Servers.Add(server);
+			_context.SaveChanges();
+
+			return server;
+        }
+
+		public Server DeleteServer(int Id)
+		{
+			try
+			{
+				Server server = _context.Servers.FirstOrDefault(server => server.Id == Id);
+
+				if (server == null)
+				{
+					return null;
+				}
+				_context.Servers.Remove(server);
+				_context.SaveChanges();
+				return server;
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.Message);
+				//return null;
+			}
+		}
+
+        public Server UpdateServer(Server serverRecebido, int Id)
+        {
+            try
+            {
+                if (Id != serverRecebido.Id)
+                {
+                    return null;
+                }
+
+                Server server = _context.Servers.AsNoTracking().FirstOrDefault(s => s.Id == Id);
+               
+                if (server == null)
+                {
+                    return null;
+                }
+
+                server = serverRecebido;
+              
+                _context.Update(server);
+                _context.SaveChanges();
+                return server;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+    }
 }
+
+

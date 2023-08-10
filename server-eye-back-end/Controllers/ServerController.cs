@@ -51,5 +51,42 @@ namespace server_eye_back_end.Controllers
 			return Ok(servers);
 
 		}
-	}
+
+        [HttpPost]
+        public IActionResult AddServer([FromBody] Server serverRecebido)
+        {
+            Server server = _service.AddServer(serverRecebido);
+
+            if (server == null)
+            {
+                return BadRequest("Problema ao gravar servidor");
+            }
+            return Ok(server);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteServer(int id)
+        {
+          
+            Server server = _service.DeleteServer(id);
+
+            if (server == null)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateServer([FromBody] Server server, int id)
+        {
+            Server serverUpdated = _service.UpdateServer(server, id);
+
+            if (serverUpdated == null)
+            {
+                return NotFound();
+            }
+            return Ok(serverUpdated);
+        }
+    }
 }

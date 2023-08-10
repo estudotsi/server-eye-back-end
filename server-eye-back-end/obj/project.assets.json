@@ -1391,25 +1391,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rogerio.campos\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Casa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rogerio.campos\\Desktop\\server-eye\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
+      "projectUniqueName": "C:\\Users\\Casa\\source\\repos\\server-eye\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
       "projectName": "server-eye-back-end",
-      "projectPath": "C:\\Users\\rogerio.campos\\Desktop\\server-eye\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
-      "packagesPath": "C:\\Users\\rogerio.campos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rogerio.campos\\Desktop\\server-eye\\server-eye-back-end\\server-eye-back-end\\obj\\",
+      "projectPath": "C:\\Users\\Casa\\source\\repos\\server-eye\\server-eye-back-end\\server-eye-back-end\\server-eye-back-end.csproj",
+      "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Casa\\source\\repos\\server-eye\\server-eye-back-end\\server-eye-back-end\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\rogerio.campos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1489,7 +1487,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   },

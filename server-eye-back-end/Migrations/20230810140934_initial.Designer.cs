@@ -10,8 +10,8 @@ using server_eye_back_end.Data;
 namespace server_eye_back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230719153527_imaurlCanNull")]
-    partial class imaurlCanNull
+    [Migration("20230810140934_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -151,7 +151,7 @@ namespace server_eye_back_end.Migrations
                     b.HasOne("server_eye_back_end.Models.Os", "Os")
                         .WithMany("Servers")
                         .HasForeignKey("OsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Os");

@@ -1,4 +1,6 @@
-﻿namespace server_eye_back_end.Models
+﻿using server_eye_back_end.Models;
+
+namespace server_eye_back_end.Models
 {
 	public class Server
 	{
@@ -7,8 +9,8 @@
 		public string Name { get; set; }
 		public string Rede { get; set; }
 		public int OsId { get; set; }
-        public virtual Os Os { get; set; }
-        public virtual List<App> Apps { get; set; }
-		public virtual List<DB> DBs { get; set; }
+        public virtual Os? Os { get; set; }
+        public virtual List<App>? Apps { get; set; }
+		public virtual List<DB>? DBs { get; set; }
 	}
 }

@@ -5,8 +5,8 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public int ServerId { get; set; }
-        public virtual Server Server { get; set; }
         public int DBId { get; set; }
+        public virtual Server Server { get; set; }
         public virtual DB DB { get; set; }
     }
 }

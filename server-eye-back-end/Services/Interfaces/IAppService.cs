@@ -6,5 +6,6 @@ namespace server_eye_back_end.Services.Interfaces
 	{
 		List<App> ReadApps();
 		App ReadAppById(int Id);
+		App AddApp(App app);
 	}
 }

@@ -94,8 +94,8 @@ namespace server_eye_back_end.Services.Service
 			}
 			catch (Exception ex)
 			{
-				throw new Exception(ex.Message);
-				//return null;
+				//throw new Exception(ex.Message);
+				return null;
 			}
 		}
 

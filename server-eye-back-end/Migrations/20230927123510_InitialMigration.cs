@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace server_eye_back_end.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,7 +75,7 @@ namespace server_eye_back_end.Migrations
                         column: x => x.ServerId,
                         principalTable: "Servers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -98,7 +98,7 @@ namespace server_eye_back_end.Migrations
                         column: x => x.DBId,
                         principalTable: "DBs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Apps_Servers_ServerId",
                         column: x => x.ServerId,
@@ -111,8 +111,7 @@ namespace server_eye_back_end.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Apps_DBId",
                 table: "Apps",
-                column: "DBId",
-                unique: true);
+                column: "DBId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Apps_ServerId",

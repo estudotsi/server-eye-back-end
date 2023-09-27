@@ -10,8 +10,8 @@ using server_eye_back_end.Data;
 namespace server_eye_back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230810140934_initial")]
-    partial class initial
+    [Migration("20230927123510_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,7 @@ namespace server_eye_back_end.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DBId")
-                        .IsUnique();
+                    b.HasIndex("DBId");
 
                     b.HasIndex("ServerId");
 
@@ -119,9 +118,9 @@ namespace server_eye_back_end.Migrations
             modelBuilder.Entity("server_eye_back_end.Models.App", b =>
                 {
                     b.HasOne("server_eye_back_end.Models.DB", "DB")
-                        .WithOne("App")
-                        .HasForeignKey("server_eye_back_end.Models.App", "DBId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("Apps")
+                        .HasForeignKey("DBId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("server_eye_back_end.Models.Server", "Server")
@@ -140,7 +139,7 @@ namespace server_eye_back_end.Migrations
                     b.HasOne("server_eye_back_end.Models.Server", "Server")
                         .WithMany("DBs")
                         .HasForeignKey("ServerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Server");
@@ -159,8 +158,7 @@ namespace server_eye_back_end.Migrations
 
             modelBuilder.Entity("server_eye_back_end.Models.DB", b =>
                 {
-                    b.Navigation("App")
-                        .IsRequired();
+                    b.Navigation("Apps");
                 });
 
             modelBuilder.Entity("server_eye_back_end.Models.Os", b =>

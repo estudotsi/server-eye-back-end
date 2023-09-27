@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using server_eye_back_end.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using server_eye_back_end.Models;
 using server_eye_back_end.Services.Interfaces;
-
 namespace server_eye_back_end.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ServerController : ControllerBase
 	{

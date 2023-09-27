@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using server_eye_back_end.Data;
 using server_eye_back_end.Models;
 using server_eye_back_end.Services.Interfaces;
 using server_eye_back_end.Services.Service;

@@ -35,5 +35,17 @@ namespace server_eye_back_end.Controllers
 			}
 			return Ok(app);
 		}
-	}
+
+        [HttpPost]
+        public IActionResult AddApp([FromBody] App appRecebido)
+        {
+            App app = _service.AddApp(appRecebido);
+
+            if (app == null)
+            {
+                return BadRequest("Problema ao gravar aplicativo");
+            }
+            return Ok(app);
+        }
+    }
 }

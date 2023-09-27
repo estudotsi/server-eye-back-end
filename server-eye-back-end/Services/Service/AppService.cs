@@ -52,6 +52,14 @@ namespace server_eye_back_end.Services.Service
 			}
 		}
 
-	
-	}
+        public App AddApp(App app)
+        {
+            _context.Apps.Add(app);
+			_context.SaveChanges();
+
+			return app;
+        }
+    }
 }
+
+
